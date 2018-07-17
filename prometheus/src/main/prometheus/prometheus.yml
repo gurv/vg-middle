@@ -1,0 +1,77 @@
+﻿global:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'vg'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'grafana'
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['grafana:3000']
+
+  - job_name: 'docker'
+    static_configs:
+      #TOSO это только для Windows
+      - targets: ['192.168.65.1:9323']
+
+  - job_name: 'jmx'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['zookeeper:1233', 'kafka:1234', 'h2:1235']
+
+  - job_name: 'kafka'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['kafka:1234']
+
+  - job_name: 'swagger'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['swagger:8084']
+
+  - job_name: 'config'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['config:8888']
+
+  - job_name: 'auth'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['auth:5000']
+
+  - job_name: 'gateway'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['gateway:10000']
+
+  - job_name: 'skipper'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['skipper:7577']
+
+  - job_name: 'dataflow'
+    metrics_path: '/management/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['dataflow:9393']
+
+  - job_name: 'account'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['account:8081']
+
+  - job_name: 'metadata'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['metadata:8082']

@@ -1,0 +1,11 @@
+import com.bmuschko.gradle.docker.tasks.image.*
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn build
+    dockerFile file("$buildDir/docker/Dockerfile")
+    inputDir = file("$buildDir/docker")
+    tag = 'vg/zookeeper:latest'
+    buildArgs = [
+            'ZOOKEEPER_VERSION': rootProject.zookeeperVersion,
+    ]
+}

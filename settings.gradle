@@ -1,0 +1,9 @@
+rootProject.name = 'vg-middle'
+
+include 'h2'
+include 'kafka'
+include 'zookeeper'
+include 'prometheus'
+include 'prometheus-pushgateway'
+include 'grafana'
+include 'portainer'

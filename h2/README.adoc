@@ -1,0 +1,5 @@
+= База данных
+
+Сборка docker-образа http://www.h2database.com/html/main.html[H2]
+
+* FIXME: не работает экспорт jmx-метрик в prometheus (http://localhost:1235/metrics)

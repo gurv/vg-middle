@@ -1,0 +1,13 @@
+= Prometheus
+
+Сборка docker-образа [Prometheus](https://prometheus.io/)
+
+== Разное
+
+* для Docker на Windows в его настройках (на вкладке "Daemon" переключить Basic -> Advanced) дб:
+```
+{
+  "metrics-addr": "127.0.0.1:9323",
+  "experimental": true
+}
+```

@@ -1,0 +1,33 @@
+import com.bmuschko.gradle.docker.tasks.image.*
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn build
+    dockerFile file("$buildDir/docker/Dockerfile")
+    inputDir = file("$buildDir/docker")
+    tag = 'vg/h2:latest'
+    buildArgs = [
+            'H2_VERSION': rootProject.h2Version,
+    ]
+    doFirst {
+        copy {
+            from 'src/main/docker'
+            into "$project.buildDir/docker"
+        }
+    }
+}
+
+task dockerBackup(type: Exec) {
+    commandLine "docker", "run",
+            "--rm",
+            "-v", "vg_h2:/opt/h2-data",
+            "-v", "${rootProject.projectDir.path.replace('\\', '/')}/.backups:/backup",
+            "alpine", "tar", "-cvzf", "backup/h2.tar.gz", "opt/h2-data"
+}
+
+task dockerRestore(type: Exec) {
+    commandLine "docker", "run",
+            "--rm",
+            "-v", "vg_h2:/opt/h2-data",
+            "-v", "${rootProject.projectDir.path.replace('\\', '/')}/.backups:/backup",
+            "alpine", "tar", "-xvf", "backup/h2.tar.gz"
+}
