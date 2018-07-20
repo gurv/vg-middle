@@ -19,6 +19,7 @@ configure(rootProject) {
         portainerVersion = '1.18.1'
         zookeeperVersion = '3.4.11'
         kafkaVersion = '1.1.0'
+        confluentVersion = '4.1.1'
 
         prometheusWmiExporter = findProperty('prometheusWmiExporter') ?: "C:/app/wmi_exporter-$prometheusWmiExporterVersion/wmi_exporter.exe"
 
@@ -30,6 +31,7 @@ configure(rootProject) {
                 project(':prometheus'),
                 project(':grafana'),
                 project(':portainer'),
+                project(':kafka-schema-registry'),
         ]
 
         applicationTaskGroup = 'application'

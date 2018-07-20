@@ -4,7 +4,7 @@ task buildImage(type: DockerBuildImage) {
     dependsOn build
     dockerFile file("src/main/docker/Dockerfile")
     inputDir = file("src/main/docker")
-    tag = 'vg/kafka:latest'
+    tag = 'vg/kafka-schema-registry:latest'
     buildArgs = [
             'CONFLUENT_VERSION': rootProject.confluentVersion,
     ]

@@ -2,10 +2,10 @@ import com.bmuschko.gradle.docker.tasks.image.*
 
 task buildImage(type: DockerBuildImage) {
     dependsOn build
-    dockerFile file("$buildDir/docker/Dockerfile")
-    inputDir = file("$buildDir/docker")
+    dockerFile file("src/main/docker/Dockerfile")
+    inputDir = file("src/main/docker")
     tag = 'vg/zookeeper:latest'
     buildArgs = [
-            'ZOOKEEPER_VERSION': rootProject.zookeeperVersion,
+            'CONFLUENT_VERSION': rootProject.confluentVersion,
     ]
 }

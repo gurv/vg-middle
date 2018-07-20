@@ -1,0 +1,5 @@
+= Регистратор схем сообщений для Kafka
+
+Реализовано на Apache Avro
+
+Сборка docker-образа https://hub.docker.com/r/confluentinc/cp-schema-registry/[confluentinc/cp-schema-registry]

@@ -1,10 +1,5 @@
-#TODO Официального docker-образа нет, поэтому вынужденная зависимость от 3-х лиц
-# Полезное oб этом образе:
-#   DockerHub: https://hub.docker.com/r/wurstmeister/kafka/
-#   GitHub: https://github.com/wurstmeister/kafka-docker
-#   Tutorial: http://wurstmeister.github.io/kafka-docker/
-ARG KAFKA_VERSION=1.1.0
-FROM wurstmeister/kafka:$KAFKA_VERSION
+ARG CONFLUENT_VERSION=4.1.1
+FROM confluentinc/cp-kafka:$CONFLUENT_VERSION
 
 # prometheus
 COPY prometheus.yml /opt/prometheus/prometheus.yml
