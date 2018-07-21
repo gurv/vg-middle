@@ -2,16 +2,10 @@ import com.bmuschko.gradle.docker.tasks.image.*
 
 task buildImage(type: DockerBuildImage) {
     dependsOn build
-    dockerFile file("$buildDir/docker/Dockerfile")
-    inputDir = file("$buildDir/docker")
+    dockerFile file("src/main/docker/Dockerfile")
+    inputDir = file("src/main")
     tag = 'vg/grafana:latest'
     buildArgs = [
             'GRAFANA_VERSION': rootProject.grafanaVersion,
     ]
-    doFirst {
-        copy {
-            from 'src/main/grafana'
-            into "$project.buildDir/docker/grafana"
-        }
-    }
 }
