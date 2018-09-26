@@ -16,7 +16,6 @@ configure(rootProject) {
         prometheusWmiExporterVersion = '0.2.10'
         grafanaVersion = '5.1.4'
         h2Version = '2017-06-10'
-        portainerVersion = '1.18.1'
         zookeeperVersion = '3.4.11'
         kafkaVersion = '1.1.0'
         confluentVersion = '4.1.1'
@@ -30,7 +29,6 @@ configure(rootProject) {
                 project(':zookeeper'),
                 project(':prometheus'),
                 project(':grafana'),
-                project(':portainer'),
                 project(':kafka-schema-registry'),
         ]
 
