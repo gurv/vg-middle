@@ -1,0 +1,8 @@
+import com.bmuschko.gradle.docker.tasks.image.*
+
+task buildImage(type: DockerBuildImage) {
+    dependsOn build
+    dockerFile file("src/main/docker/Dockerfile")
+    inputDir = file(".")
+    tag = 'vg/postgres:latest'
+}

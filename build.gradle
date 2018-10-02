@@ -23,6 +23,7 @@ configure(rootProject) {
                 project(':prometheus'),
                 project(':grafana'),
                 project(':kafka-schema-registry'),
+                project(':postgres'),
         ]
 
         applicationTaskGroup = 'application'
