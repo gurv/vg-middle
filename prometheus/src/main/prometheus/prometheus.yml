@@ -1,4 +1,4 @@
-﻿global:
+global:
   scrape_interval: 5s
   external_labels:
     monitor: 'vg'
