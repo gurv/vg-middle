@@ -1,5 +1,0 @@
-= Prometheus PushGateway
-
-Сборка docker-образа https://prometheus.io/docs/instrumenting/pushing/[Prometheus PushGateway]
-
-* TODO: добавить jmx-агента для prometheus
