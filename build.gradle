@@ -15,6 +15,7 @@ configure(rootProject) {
         zookeeperVersion = '3.4.11'
         kafkaVersion = '1.1.0'
         confluentVersion = '4.1.1'
+        elkVersion = '6.4.0'
     }
 }
 

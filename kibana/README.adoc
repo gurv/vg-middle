@@ -1,0 +1,3 @@
+= Kibana
+
+Сборка docker-образа https://www.elastic.co/products/kibana/[Kibana]
