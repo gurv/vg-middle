@@ -75,22 +75,3 @@ configure(subprojects.findAll {it.subprojects.size() == 0 }) {
 configure(project.dockerProjects) {
     apply plugin: 'base'
 }
-
-task dockerMonitoringStart(type: Exec, overwrite: true) {
-    description = "Run monitoring"
-    group = rootProject.dockerTaskGroup
-
-    commandLine "docker-compose",
-            "-f", "docker-compose.dev.monitoring.yml",
-            "up",
-            "-d"
-}
-
-task dockerMonitoringStop(type: Exec, overwrite: true) {
-    description = "Stop monitoring"
-    group = rootProject.dockerTaskGroup
-
-    commandLine "docker-compose",
-            "-f", "docker-compose.dev.monitoring.yml",
-            "stop"
-}
