@@ -4,6 +4,9 @@ plugins {
 }
 
 configure(rootProject) {
+    group = 'ru.gurv.vg'
+    version = '0.1.0'
+
     ext {
         prometheusVersion = 'v2.3.1'
         prometheusWmiExporterVersion = '0.2.10'
@@ -12,49 +15,19 @@ configure(rootProject) {
         zookeeperVersion = '3.4.11'
         kafkaVersion = '1.1.0'
         confluentVersion = '4.1.1'
-
         prometheusWmiExporter = findProperty('prometheusWmiExporter') ?: "C:/app/wmi_exporter-$prometheusWmiExporterVersion/wmi_exporter.exe"
-
-        // готовые загружаемые (например, из Docker Hub) docker-образы, в обертке этого проекта (напримеп, wurstmeister/kafka -> gurv/vg-kafka)
-        dockerProjects = [
-                project(':h2'),
-                project(':kafka'),
-                project(':zookeeper'),
-                project(':prometheus'),
-                project(':grafana'),
-                project(':kafka-schema-registry'),
-                project(':postgres'),
-        ]
-
-        applicationTaskGroup = 'application'
-        dockerTaskGroup = 'docker'
-    }
-
-    task upDockerCompose(type: Exec) {
-        group = rootProject.dockerTaskGroup
-
-        commandLine "docker-compose", "up"
     }
 }
 
 configure(subprojects) {
-    apply plugin: 'base'
-    apply plugin: 'org.sonarqube'
-
-    ext {
-        buildNoString = project.hasProperty('buildNo') ? "${buildNo}" : "0.1.0"
-    }
-
-    group = 'ru.gurv.vg'
-    version = buildNoString
-}
-
-configure(subprojects.findAll {it.subprojects.size() == 0 }) {
-
     repositories {
         mavenCentral()
         jcenter()
     }
+
+    apply plugin: 'base'
+    apply plugin: 'org.sonarqube'
+    apply plugin: 'com.bmuschko.docker-remote-api'
 
     ext {
         dockerImageName = "gurv/${rootProject.name}-${project.path.substring(1).replace(':', '-')}:latest"
@@ -62,16 +35,10 @@ configure(subprojects.findAll {it.subprojects.size() == 0 }) {
         dockerImageBuildArgs = []
     }
 
-    apply plugin: 'com.bmuschko.docker-remote-api'
-
     // https://github.com/bmuschko/gradle-docker-plugin/issues/467#issuecomment-353865846
     dependencies {
         dockerJava 'com.github.docker-java:docker-java:3.1.0-rc-2'
         dockerJava 'org.slf4j:slf4j-simple:1.7.5'
         dockerJava 'cglib:cglib:3.2.0'
     }
-}
-
-configure(project.dockerProjects) {
-    apply plugin: 'base'
 }

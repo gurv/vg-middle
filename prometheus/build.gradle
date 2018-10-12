@@ -2,8 +2,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 
 task buildImage(type: DockerBuildImage) {
     dependsOn build
-    dockerFile file("src/main/docker/Dockerfile")
-    inputDir = file("src/main")
+    inputDir = file(".")
     tag = 'vg/prometheus:latest'
     buildArgs = [
             'PROMETHEUS_VERSION': rootProject.prometheusVersion,
