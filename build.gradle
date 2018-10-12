@@ -1,5 +1,5 @@
 plugins {
-    id 'com.bmuschko.docker-remote-api' version '3.2.4' apply false
+    id 'com.bmuschko.docker-remote-api' version '3.4.4' apply false
     id "org.sonarqube" version "2.6.2" apply false
 }
 
@@ -33,12 +33,5 @@ configure(subprojects) {
         dockerImageName = "gurv/${rootProject.name}-${project.path.substring(1).replace(':', '-')}:latest"
         dockerContainerName = "${rootProject.name}-${project.path.substring(1).replace(':', '-')}"
         dockerImageBuildArgs = []
-    }
-
-    // https://github.com/bmuschko/gradle-docker-plugin/issues/467#issuecomment-353865846
-    dependencies {
-        dockerJava 'com.github.docker-java:docker-java:3.1.0-rc-2'
-        dockerJava 'org.slf4j:slf4j-simple:1.7.5'
-        dockerJava 'cglib:cglib:3.2.0'
     }
 }
