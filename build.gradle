@@ -15,7 +15,6 @@ configure(rootProject) {
         zookeeperVersion = '3.4.11'
         kafkaVersion = '1.1.0'
         confluentVersion = '4.1.1'
-        prometheusWmiExporter = findProperty('prometheusWmiExporter') ?: "C:/app/wmi_exporter-$prometheusWmiExporterVersion/wmi_exporter.exe"
     }
 }
 
@@ -33,5 +32,8 @@ configure(subprojects) {
         dockerImageName = "gurv/${rootProject.name}-${project.path.substring(1).replace(':', '-')}:latest"
         dockerContainerName = "${rootProject.name}-${project.path.substring(1).replace(':', '-')}"
         dockerImageBuildArgs = []
+    }
+    docker {
+        url = 'tcp://192.168.1.33:2373'
     }
 }
