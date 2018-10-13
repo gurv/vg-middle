@@ -34,4 +34,8 @@ configure(subprojects) {
         dockerContainerName = "${rootProject.name}-${project.path.substring(1).replace(':', '-')}"
         dockerImageBuildArgs = []
     }
+
+    docker {
+        url = property 'dockerHostUrl'
+    }
 }
