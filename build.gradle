@@ -36,6 +36,8 @@ configure(subprojects) {
     }
 
     docker {
-        url = property 'dockerHostUrl'
+        url = System.env.DOCKER_HOST ?: findProperty('dockerHostUrl') ?: url
+        certPath = System.env.DOCKER_CERT_PATH ? new File(System.env.DOCKER_CERT_PATH) : certPath
+        apiVersion = System.env.DOCKER_API_VERSION ?: apiVersion
     }
 }
