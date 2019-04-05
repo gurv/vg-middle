@@ -7,3 +7,7 @@
 # (vg-middle-h2)
 docker run -d gurv/vg-middle-h2
 ```
+
+== Documentation
+
+https://gurv.github.io/vg-doc/index.html
