@@ -1,7 +1,6 @@
 import com.bmuschko.gradle.docker.tasks.image.*
 
 task buildImage(type: DockerBuildImage) {
-    dependsOn build
-    tag = 'vg/kibana:latest'
-    inputDir = file(".")
+    inputDir = project.projectDir
+    tags.add(project.imageName)
 }
