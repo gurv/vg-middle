@@ -4,8 +4,8 @@ plugins {
 }
 
 configure(rootProject) {
-    group = 'ru.gurv.vg'
-    version = '0.1.0'
+    group = 'io.github.gurv'
+    version = '0.1.0-SNAPSHOT'
 
     ext {
         prometheusVersion = 'v2.3.1'
