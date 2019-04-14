@@ -8,3 +8,8 @@ task buildImage(type: DockerBuildImage) {
             'GRAFANA_VERSION': rootProject.grafanaVersion,
     ]
 }
+
+task pushImage(type: DockerPushImage) {
+    dependsOn buildImage
+    imageName = project.imageName
+}

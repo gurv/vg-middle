@@ -41,7 +41,7 @@ configure(subprojects) {
     apply plugin: 'com.bmuschko.docker-remote-api'
 
     ext {
-        imageName = "gurv/${rootProject.name}-${project.name}:latest"
+        imageName = "gurv/${project.name}:latest"
     }
 
     docker {
