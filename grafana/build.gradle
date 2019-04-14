@@ -2,7 +2,7 @@ import com.bmuschko.gradle.docker.tasks.image.*
 
 task buildImage(type: DockerBuildImage) {
     dependsOn build
-    tag = 'vg/grafana:latest'
+    tag = 'gurv/grafana:latest'
     inputDir = file(".")
     buildArgs = [
             'GRAFANA_VERSION': rootProject.grafanaVersion,
