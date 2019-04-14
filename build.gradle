@@ -45,8 +45,10 @@ configure(subprojects) {
     }
 
     docker {
-        url = System.env.DOCKER_HOST ?: findProperty('dockerHostUrl') ?: url
-        certPath = System.env.DOCKER_CERT_PATH ? new File(System.env.DOCKER_CERT_PATH) : certPath
-        apiVersion = System.env.DOCKER_API_VERSION ?: apiVersion
+        registryCredentials {
+            username = System.getenv('DOCKER_USERNAME')
+            password = System.getenv('DOCKER_PASSWORD')
+            email = 'vladimir.gurinovich@gmail.com'
+        }
     }
 }
