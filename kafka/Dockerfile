@@ -1,4 +1,4 @@
-ARG CONFLUENT_VERSION=4.1.1
+ARG CONFLUENT_VERSION
 FROM confluentinc/cp-kafka:$CONFLUENT_VERSION
 
 # prometheus
