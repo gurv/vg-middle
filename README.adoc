@@ -3,14 +3,10 @@
 image:https://img.shields.io/travis/gurv/vg-middle/master.svg[Build Status (Travis CI),link=https://travis-ci.org/gurv/vg-middle]
 image:https://sonarcloud.io/api/project_badges/measure?project=io.github.gurv:vg-middle&metric=alert_status[Sonarcloud Status,link=https://sonarcloud.io/dashboard?id=io.github.gurv%3Avg-middle]
 
-== Docker
+Documentation: https://gurv.github.io/vg-doc/index.html
 
 ```
-./gradlew buildImage
-# (vg-middle-h2)
-docker run -d gurv/vg-middle-h2
+# Docker
+./gradlew h2:buildImage
+docker run -d --name=h2 gurv/h2
 ```
-
-== Documentation
-
-https://gurv.github.io/vg-doc/index.html

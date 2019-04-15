@@ -1,5 +1,7 @@
-= База данных
+= H2
 
-Сборка docker-образа http://www.h2database.com/html/main.html[H2]
-
-* FIXME: не работает экспорт jmx-метрик в prometheus (http://localhost:1235/metrics)
+```
+# Docker
+./gradlew h2:buildImage
+docker run -p 8083:8083 -p 9093:9093 --name=h2 gurv/h2
+```
