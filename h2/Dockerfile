@@ -6,7 +6,8 @@ RUN wget -q http://h2database.com/h2-$H2_VERSION.zip \
   && unzip -qq h2-$H2_VERSION.zip \
   && mv h2 /opt \
   && rm -f h2-$H2_VERSION.zip \
-  && mkdir -p /opt/h2-data
+  && mkdir -p /opt/h2-data \
+  && chmod 777 /opt/h2-data
 
 # prometheus
 COPY prometheus.yml /opt/h2/
