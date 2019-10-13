@@ -13,9 +13,9 @@ jobs:
     - name: Build
       run: |
         ./gradlew build
-    - name: Push
+    - name: Publish
       env:
-        GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+        GITHUB_USERNAME: gurv
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./gradlew pushImageToGitHub
