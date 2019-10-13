@@ -90,6 +90,8 @@ subprojects {
             registryCredentials.url = project.githubRegistry
             registryCredentials.username = findProperty('githubUsername') ?: System.getenv('GITHUB_USERNAME')
             registryCredentials.password = findProperty('githubToken') ?: System.getenv('GITHUB_TOKEN')
+            println "!!!1 ${registryCredentials.username}"
+            println "!!!2 ${registryCredentials.password}"
         }
     }
 }
