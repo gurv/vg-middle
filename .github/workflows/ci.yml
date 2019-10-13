@@ -12,4 +12,10 @@ jobs:
         java-version: 11
     - name: Build
       run: |
-        ./gradlew build
+        ./gradlew build pushImageToGitHub
+    - name: Push
+      env:
+        GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./gradlew pushImageToGitHub
