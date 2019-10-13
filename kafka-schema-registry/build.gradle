@@ -1,9 +1,5 @@
-import com.bmuschko.gradle.docker.tasks.image.*
-
-task buildImage(type: DockerBuildImage) {
-    inputDir = project.projectDir
-    tags.add(project.imageName)
+buildImage.doFirst {
     buildArgs = [
-            'CONFLUENT_VERSION': rootProject.confluentVersion,
-    ]
+           'CONFLUENT_VERSION': rootProject.confluentVersion,
+     ]
 }
