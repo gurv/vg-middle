@@ -24,6 +24,7 @@ configure(rootProject) {
         kafkaVersion = '1.1.0'
         confluentVersion = '4.1.3'
         elkVersion = '6.4.0'
+        postgresVersion = '10.5'
     }
 }
 
@@ -62,6 +63,14 @@ subprojects {
     task buildImage(type: DockerBuildImage) {
         inputDir = project.projectDir
         tags.add("${project.imageName}:${project.imageVersion}")
+        buildArgs = [
+            'CONFLUENT_VERSION': rootProject.confluentVersion,
+            'GRAFANA_VERSION': rootProject.grafanaVersion,
+            'H2_VERSION': rootProject.h2Version,
+            'ELK_VERSION': rootProject.elkVersion,
+            'POSTGRES_VERSION': rootProject.postgresVersion,
+            'PROMETHEUS_VERSION': rootProject.prometheusVersion,
+        ]
     }
 
     task tagImageDockerHub(type: DockerTagImage) {

@@ -1,4 +1,5 @@
-ARG CONFLUENT_VERSION=3.4.11
+ARG CONFLUENT_VERSION=
+
 FROM confluentinc/cp-zookeeper:${CONFLUENT_VERSION}
 
 # prometheus

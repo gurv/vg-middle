@@ -1,4 +1,5 @@
-ARG CONFLUENT_VERSION=4.1.1
-FROM confluentinc/cp-schema-registry:$CONFLUENT_VERSION
+ARG CONFLUENT_VERSION=
+
+FROM confluentinc/cp-schema-registry:${CONFLUENT_VERSION}
 
 EXPOSE 18081

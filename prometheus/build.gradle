@@ -1,5 +1,0 @@
-buildImage.doFirst {
-    buildArgs = [
-            'PROMETHEUS_VERSION': rootProject.prometheusVersion,
-     ]
-}

@@ -1,11 +1,11 @@
 FROM java:8-jre
 
-ARG H2_VERSION=2014-04-05
+ARG H2_VERSION=
 
-RUN wget -q http://h2database.com/h2-$H2_VERSION.zip \
-  && unzip -qq h2-$H2_VERSION.zip \
+RUN wget -q http://h2database.com/h2-${H2_VERSION}.zip \
+  && unzip -qq h2-${H2_VERSION}.zip \
   && mv h2 /opt \
-  && rm -f h2-$H2_VERSION.zip \
+  && rm -f h2-${H2_VERSION}.zip \
   && mkdir -p /opt/h2-data \
   && chmod 777 /opt/h2-data
 

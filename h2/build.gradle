@@ -1,9 +1,3 @@
-buildImage.doFirst {
-    buildArgs = [
-            'H2_VERSION': rootProject.h2Version,
-    ]
-}
-
 task dockerBackup(type: Exec) {
     commandLine \
         "docker", "run",
