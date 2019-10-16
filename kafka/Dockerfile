@@ -1,5 +1,5 @@
-ARG CONFLUENT_VERSION
-FROM confluentinc/cp-kafka:$CONFLUENT_VERSION
+ARG CONFLUENT_VERSION=4.1.3
+FROM confluentinc/cp-kafka:${CONFLUENT_VERSION}
 
 # prometheus
 COPY prometheus.yml /opt/prometheus/prometheus.yml
