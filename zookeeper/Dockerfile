@@ -1,5 +1,5 @@
-ARG CONFLUENT_VERSION
-FROM confluentinc/cp-zookeeper:$CONFLUENT_VERSION
+ARG CONFLUENT_VERSION=3.4.11
+FROM confluentinc/cp-zookeeper:${CONFLUENT_VERSION}
 
 # prometheus
 COPY prometheus.yml /usr/app/prometheus.yml
