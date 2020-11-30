@@ -11,7 +11,7 @@ RUN wget -q http://h2database.com/h2-${H2_VERSION}.zip \
 
 # prometheus
 COPY prometheus.yml /opt/h2/
-ADD http://central.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.10/jmx_prometheus_javaagent-0.10.jar /opt/h2/jmx_prometheus_javaagent.jar
+ADD https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.10/jmx_prometheus_javaagent-0.10.jar /opt/h2/jmx_prometheus_javaagent.jar
 RUN chmod +r /opt/h2/jmx_prometheus_javaagent.jar
 
 COPY docker-entrypoint.sh /usr/local/bin/
